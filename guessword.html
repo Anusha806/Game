@@ -1,8 +1,25 @@
-<html>
-    <head>
-        <h1>Gess Word game</h1>
-    </head>
-    <body>
-        <p>Guess Word</p>
-    </body>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guess the Word</title>
+    <link rel="stylesheet" href="guessword.css">
+</head>
+<body>
+    <div class="container">
+        <h1>Guess the Word</h1>
+        <p id="hint">Hint : <span></span></p> <!-- This element will display the hint -->
+        <div id="wordDisplay"></div>
+        
+        <input type="text" id="guessInput" placeholder="Enter your guess">
+        <button id="submitBtn">Submit</button>
+        <button id="hintBtn">Hint</button>
+        <button id="revealBtn">Reveal</button>
+        <button class="reset-btn">Reset Game</button>
+        <p id="result"></p>
+    </div>
+    <script src="js/words.js"></script>
+    <script src="guessword.js"></script>
+</body>
 </html>
