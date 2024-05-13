@@ -31,7 +31,7 @@ let wordList = [
     },
     {
         word: "island",
-        hint: "land surrounded by water"
+        hint: "land surrounded in a sea"
     },
     {
         word: "hockey",

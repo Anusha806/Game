@@ -7,6 +7,8 @@
     const revealButton = document.getElementById('revealBtn');
     const resultElement = document.getElementById('result');
 
+    
+
 function randomWord() {
   let randomIndex = Math.floor(Math.random() * wordList.length);
   currentWord = wordList[randomIndex].word;
