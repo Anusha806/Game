@@ -27,37 +27,52 @@ submitButton.addEventListener('click', () => {
     const isCorrect = wordList.some((wordObject) => wordObject.word === userGuess);
     if (isCorrect) {
       resultElement.textContent = 'Correct!';
+      resultElement.classList.add('show');
+      randomWord();
     } else {
       resultElement.textContent = 'Incorrect. Try again!';
+      resultElement.classList.add('show');
     }
     guessInputElement.value = '';
   });
   
 
-// Event listener for hint button
-// hintButton.addEventListener('click', () => {
-//     if (revealedLetters < currentWord.length) {
-//         displayedWord = displayedWord.split('');
-//         for (let i = 0; i < currentWord.length; i++) {
-//             if (currentWord[i] === ' ' || displayedWord[i] !== '_') {
-//                 continue;
-//             }
-//             displayedWord[i] = currentWord[i];
-//             revealedLetters++;
-//             break;
-//         }
-//         wordDisplayElement.textContent = displayedWord.join('');
-//     }
-// });
 
-hintButton.addEventListener('click', () => {
-  resultElement.textContent = `Number of letters in the word: ${currentWord.length}`;
-});
 
-revealButton.addEventListener('click', () => {
-    resultElement.textContent = `The word is: ${currentWord}`;
+
+  hintButton.addEventListener('click', () => {
+    resultElement.textContent = `Number of letters in the word: ${currentWord.length}`;
+    resultElement.classList.add('show');
   });
-  const resetButton = document.querySelector('.reset-btn');
-  resetButton.addEventListener('click', () => {
+  
+  revealButton.addEventListener('click', () => {
+      resultElement.textContent = `The word is: ${currentWord}`;
+      resultElement.classList.add('show');
+    });
+  
+    const resetButton = document.querySelector('.reset-btn');
+    resetButton.addEventListener('click', () => {
       randomWord(); 
   });
+
+
+CSS.registerProperty({
+  name: "--gradientColor1",
+  syntax: '<color>',
+  inherits: true,
+  initialValue: "#09ec3a"
+});
+
+CSS.registerProperty({
+  name: "--gradientColor2",
+  syntax: '<color>',
+  inherits: true,
+  initialValue: "#040c27"
+});
+
+CSS.registerProperty({
+  name: "--gradientColor3",
+  syntax: '<color>',
+  inherits: true,
+  initialValue: "#37a5ee"
+});

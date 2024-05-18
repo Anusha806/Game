@@ -1,5 +1,6 @@
 body {
     font-family: Arial, sans-serif;
+    background-color: #000000 !important;
 }
 
 .container {
@@ -9,13 +10,33 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: #ffffff;
 }
+.block{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    }
+.app{
+        width: 300px;
+        height: 500px;
+        border: 4px solid var(--light-dark);
+        background-color: #181C2E;
+        border-radius: 8px;
+        padding: 14px;
+        overflow-y: scroll;
+        border-radius: 18px;
 
-/* #wordDisplay {
-    font-size: 24px;
-    margin-bottom: 20px;
-} */
+        /* box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px; */
+
+        box-shadow: rgba(0, 0, 0, 0.56) 0px 22px 70px 4px;
+    }
+    .app::-webkit-scrollbar{
+        width: 0 !important;
+      }
+
 
 #wordDisplay {
     font-size: 24px;
@@ -32,6 +53,7 @@ h1 {
 #guessInput {
     margin-bottom: 10px;
     padding: 5px;
+    display: center;
 }
 
 button {
@@ -43,4 +65,125 @@ button {
 #result {
     margin-top: 20px;
     font-weight: bold;
+}
+
+
+.wrap {
+    flex-direction: column;
+    height: 100%;
+    display: flex;
+    align-items: center;
+  }
+
+  .customBtn, #resetBtn {
+    width: 140px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #fff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+    }
+
+  .customBtn:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+  #resetBtn:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+  }
+
+  .result {
+    display: none;
+    text-align: center;
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.result.show {
+    display: block; /* Show result message */
+}
+
+
+@import url(https://fonts.googleapis.com/css?family=Lato);
+body {
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  font-family: Lato, sans-serif;
+  background: #040a22!important;
+}
+
+.card {
+  position: relative;
+
+  width: 300px;
+  height: 530px;
+  color: white;
+
+  .glass {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400%;
+    background: rgba(255, 255, 255, 0.1);
+  }
+
+  &::before,
+  &::after {
+    position: absolute;
+    content: "";
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+  }
+
+  &::before {
+    z-index: -1;
+    background: #040a22!important;
+  }
+
+  &::after {
+    --gradientColor1: #09ec3a;
+    --gradientColor2: #040c27;
+    --gradientColor3: #37a5ee;
+    z-index: -2;
+    background: linear-gradient(
+      235deg,
+      var(--gradientColor1),
+      var(--gradientColor2),
+      var(--gradientColor3)
+    );
+    filter: blur(100px);
+    animation: glow 9s linear infinite;
+  }
+
+  .card-body {
+    padding: 20px;
+    color: white;
+  }
+}
+
+@keyframes glow {
+  1000% {
+    --gradientColor1: rgba(9, 236, 58, 0.6);
+    --gradientColor2: rgba(4, 12, 39, 0.6);
+    --gradientColor3: rgba(55, 165, 238, 0.6);
+  }
 }

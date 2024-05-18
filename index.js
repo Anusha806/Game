@@ -1,31 +1,29 @@
-// let textarea =  document.getElementById("textarea");
-// let msg = document.getElementById("msg");
 
-// form.addEventListener("submit", (e)=> {
-//     e.preventDefault();
-//     formValidation();
-    
-// });
+function guessword(){
+    window.open("guessword.html", "_blank");
+}
+function memoryGame(){
+    window.open("memoryGame.html", "_blank");
+}
 
-// let formValidation= () => {
-//     if(textInput.value === "") {
-//         msg.innerHTML="Post cannot be blank!"
-//         console.log("failure");
-//     }else{
-//         console.log("successs");
-//         msg.innerHTML=""
-//         acceptData();
-//         // add.setAttribute("data-bs-dismiss", "modal");
-//         add.click();
-//     }
-// }
 
-// let data =[{}];
+CSS.registerProperty({
+    name: "--gradientColor1",
+    syntax: '<color>',
+    inherits: true,
+    initialValue: "#09ec3a"
+  });
 
-// let acceptData=() => {
-//     data.push({
-//         text: textInput.value,  
-//     })
-//     localStorage.setItem("data", JSON.stringify(data));
-//     console.log(data);
-// };
+  CSS.registerProperty({
+    name: "--gradientColor2",
+    syntax: '<color>',
+    inherits: true,
+    initialValue: "#040c27"
+  });
+
+  CSS.registerProperty({
+    name: "--gradientColor3",
+    syntax: '<color>',
+    inherits: true,
+    initialValue: "#37a5ee"
+  });
