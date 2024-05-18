@@ -56,8 +56,6 @@ resetButton.addEventListener('click', () => {
     console.log("Reset button clicked"); // Check if this message appears in the console when the button is clicked
     randomWord(); 
 });
-
-
 CSS.registerProperty({
   name: "--gradientColor1",
   syntax: '<color>',
