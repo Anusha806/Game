@@ -57,7 +57,6 @@ hintButton.addEventListener('click', () => {
 revealButton.addEventListener('click', () => {
     resultElement.textContent = `The word is: ${currentWord}`;
   });
-  
   const resetButton = document.querySelector('.reset-btn');
   resetButton.addEventListener('click', () => {
       randomWord(); 
