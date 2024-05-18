@@ -23,15 +23,17 @@ function randomWord() {
 
 
 submitButton.addEventListener('click', () => {
-    const userGuess = guessInputElement.value.toLowerCase(); 
+    const userGuess = guessInputElement.value.toLowerCase();
     const isCorrect = wordList.some((wordObject) => wordObject.word === userGuess);
     if (isCorrect) {
       resultElement.textContent = 'Correct!';
-      resultElement.classList.add('show');
+      resultElement.classList.remove('incorrect');
+      resultElement.classList.add('correct', 'show');
       randomWord();
     } else {
-      resultElement.textContent = 'Incorrect. Try again!';
-      resultElement.classList.add('show');
+    resultElement.textContent = 'Incorrect. Try again!';
+    resultElement.classList.remove('correct');
+    resultElement.classList.add('incorrect', 'show');
     }
     guessInputElement.value = '';
   });
@@ -75,4 +77,15 @@ CSS.registerProperty({
   syntax: '<color>',
   inherits: true,
   initialValue: "#37a5ee"
+});
+
+
+const allButtons = document.querySelectorAll('button');
+allButtons.forEach(button => {
+  if (button !== submitButton) {
+    button.addEventListener('click', () => {
+      resultElement.classList.remove('correct');
+      resultElement.classList.add('incorrect');
+    });
+  }
 });
