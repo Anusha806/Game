@@ -3,100 +3,47 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Create Text Boxes</title>
+    <title>Memory Game</title>
+    <style>
+        /* Add any necessary CSS styles here */
+    </style>
 </head>
 <body>
-    <label for="numBoxes">Enter the number of text boxes:</label>
-    <input type="number" id="numBoxes" min="1" value="1">
-    <button onclick="createTextBoxes()">Create Text Boxes</button>
-    
-    <div id="textBoxContainer">
-        <!-- Text boxes will be added here dynamically -->
-    </div>
+    <h1>Memory Game</h1>
+    <div id="game-container"></div>
 
     <script>
-        function createTextBoxes() {
-            var numBoxes = parseInt(document.getElementById("numBoxes").value);
-            var container = document.getElementById("textBoxContainer");
-            
-            // Clear previous content
-            container.innerHTML = '';
+        document.addEventListener("DOMContentLoaded", () => {
+            // Retrieve the number of players from the URL or local storage
+            const numberOfPlayers = parseInt(localStorage.getItem("numberOfPlayers"));
 
-            // Create new text boxes
-            for (var i = 0; i < numBoxes; i++) {
-                var input = document.createElement("input");
-                input.type = "text";
-                input.name = "textbox" + i;
-                container.appendChild(input);
-                container.appendChild(document.createElement("br")); // Add line break
-            }
-        }
+            // Initialize arrays to store words for each player
+            const playerWords = new Array(numberOfPlayers).fill([]);
+
+            // Game logic function
+            const startGame = () => {
+                // Loop through each player's turn
+                for (let currentPlayer = 0; currentPlayer < numberOfPlayers; currentPlayer++) {
+                    // Prompt the current player for their words
+                    let word = prompt(`Player ${currentPlayer + 1}, please enter your word(s):`);
+
+                    // Check if the entered word is valid
+                    if (word === null || word.trim() === "") {
+                        alert("Please enter a valid word!");
+                        break; // Exit the game if the input is empty or cancelled
+                    }
+
+                    // Update the current player's array with the entered word(s)
+                    playerWords[currentPlayer].push(word);
+
+                    // Display the current player's words
+                    console.log(`Player ${currentPlayer + 1}'s words: ${playerWords[currentPlayer].join(", ")}`);
+                }
+            };
+
+            // Start the game
+            startGame();
+        });
     </script>
 </body>
 </html>
-
-
-
-
-
-
-//TO SAVE THE INPUT AS AN ARRAY
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Save Text as Array</title>
-</head>
-<body>
-    <input type="text" id="textInput" placeholder="Enter text...">
-    <button onclick="saveAsArray()">Save as Array</button>
-
-    <script>
-        function saveAsArray() {
-            // Get the text input value
-            var inputText = document.getElementById("textInput").value;
-
-            // Split the text into an array (e.g., split by comma)
-            var textArray = inputText.split(',');
-
-            // You can further process or use the textArray here
-            console.log(textArray);
-        }
-    </script>
-</body>
-</html>
-
-
-RANDOMLY GENERATING WORDS IN JS 
-
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Random Word Generator</title>
-</head>
-<body>
-    <button onclick="generateRandomWord()">Generate Random Word</button>
-    <div id="output"></div>
-
-    <script>
-        // Array containing a list of words
-        var words = ["apple", "banana", "orange", "grape", "pineapple", "strawberry", "watermelon"];
-
-        function generateRandomWord() {
-            // Generate a random index within the range of the words array
-            var randomIndex = Math.floor(Math.random() * words.length);
-
-            // Get the word at the randomly generated index
-            var randomWord = words[randomIndex];
-
-            // Display the random word
-            document.getElementById("output").innerText = randomWord;
-        }
-    </script>
-</body>
-</html>
-

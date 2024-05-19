@@ -1,0 +1,28 @@
+body {
+    font-family: Arial, sans-serif;
+    background: #040a22!important;
+    overflow: hidden; 
+}
+
+h1 {
+    color: #ffffff;
+}
+
+.block {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+    overflow-y: hidden; 
+    overflow: hidden; 
+}
+
+.app {
+    width: 300px;
+    height: 500px;
+    border: 2px solid var(--fade);
+    background-color: #181C2E;
+    border-radius: 8px;
+    padding: 14px;
+    }
